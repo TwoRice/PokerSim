@@ -26,7 +26,15 @@ public:
 		return true;
 	}
 
-	int getChips() {
+	string getName() {
+		return this->name;
+	}
+
+	int getAmount() {
 		return this->chips;
+	}
+
+	void appendName(string end) {
+		this->name+=end;
 	}
 }
