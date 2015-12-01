@@ -28,11 +28,19 @@ void PokerSim::setPlayers(){
 
 void PokerSim::begin() {
 	for (int i = 0; i < players.size(); i++) {
+
+		int min_raise = current_table - players.at(i).getCurrentBet();
+		int available = players.at(i).getChips();
+
+		if(min_raise > available) {
+			cout << "ERROR: " << players.at(i).getName() << " doesn't have enough chips to continue; Folding.." << endl;
+			players.at(i).fold();
+		}
 		if(players.at(i).isFolded()) {
 			continue;
 		}
-		string name = players.at(i).getName();
-		cout << name << ": Make selection.." << endl;
+
+		cout << players.at(i).getName() << ": Make selection.." << endl;
 		cout << "[C]heck" << endl;
 		cout << "[F]old" << endl;
 		cout << "[R]aise" << endl;
@@ -42,7 +50,6 @@ void PokerSim::begin() {
 		switch(selection) {
 			case 'c':
 			case 'C':
-
 				break;
 			case 'f':
 			case 'F':
@@ -50,8 +57,9 @@ void PokerSim::begin() {
 				break;
 			case 'r':
 			case 'R':
+				if()
 				cout << "Currently on table: " << current_table << endl;
-				cout << "Minimum to raise: " << (current_table - players.at(i).getCurrentBet()) << endl;
+				cout << "Minimum to raise: " << min_raise << endl;
 				cout << "Available: " players.at(i).getChips() << endl;
 				players.at(i).
 				break;
