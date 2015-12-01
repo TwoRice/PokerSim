@@ -27,3 +27,12 @@ void PokerSim::setPlayers(){
 
 }
 
+void PokerSim::begin() {
+
+}
+
+PokerSim::PokerSim() {
+	setPlayers();
+	begin();
+}
+
