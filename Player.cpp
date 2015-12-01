@@ -18,8 +18,12 @@ bool Player::bet(int amount) {
 	if(amount>chips) {
 		return false;
 	} 
-	chips-=amount;
+	this->chips-=amount;
 	return true;
+}
+
+void Player::win(int winnings) {
+	this->chips+=winnings;
 }
 
 string Player::getName() {
