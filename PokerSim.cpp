@@ -1,6 +1,9 @@
+#include <iostream>
 #include "PokerSim.h";
 
-void setPlayers(){
+using namespace std;
+
+void PokerSim::setPlayers(){
 
 int chips;
 int num;
