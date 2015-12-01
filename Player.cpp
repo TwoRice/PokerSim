@@ -32,8 +32,24 @@ string Player::getName() {
 	return this->name;
 }
 
-int Player::getAmount() {
+int Player::getChips() {
 	return this->chips;
+}
+
+void Player::getCurrentBet() {
+	return this->current_bet;
+}
+
+bool Player::isFolded() {
+	return folded;
+}
+
+void Player::setCurrentBet(int bet) {
+	this->current_bet = bet;
+}
+
+bool Player::fold() {
+	this->folded = true;
 }
 
 void Player::appendName(string end) {

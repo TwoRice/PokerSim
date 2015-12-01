@@ -3,8 +3,8 @@
 class PokerSim {
 	private:
 		int pot;
-		int current_max;
-		
+		int current_table;
+
 		vector<Player> players;
 	public: 
 		PokerSim();

@@ -28,6 +28,9 @@ void PokerSim::setPlayers(){
 
 void PokerSim::begin() {
 	for (int i = 0; i < players.size(); i++) {
+		if(players.at(i).isFolded()) {
+			continue;
+		}
 		string name = players.at(i).getName();
 		cout << name << ": Make selection.." << endl;
 		cout << "[C]heck" << endl;
@@ -43,11 +46,14 @@ void PokerSim::begin() {
 				break;
 			case 'f':
 			case 'F':
-
+				players.at(i).fold();
 				break;
 			case 'r':
 			case 'R':
-
+				cout << "Currently on table: " << current_table << endl;
+				cout << "Minimum to raise: " << (current_table - players.at(i).getCurrentBet()) << endl;
+				cout << "Available: " players.at(i).getChips() << endl;
+				players.at(i).
 				break;
 			default:
 				cout << "ERROR: Invalid selection." << endl;
@@ -61,6 +67,7 @@ void PokerSim::begin() {
 }
 
 PokerSim::PokerSim() {
+	this->current = 0;
 	setPlayers();
 	begin();
 }
