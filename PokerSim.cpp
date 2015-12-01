@@ -57,11 +57,13 @@ void PokerSim::begin() {
 				break;
 			case 'r':
 			case 'R':
-				if()
 				cout << "Currently on table: " << current_table << endl;
 				cout << "Minimum to raise: " << min_raise << endl;
 				cout << "Available: " players.at(i).getChips() << endl;
-				players.at(i).
+				int to_bet;
+				cout << "Enter amount to raise: " << endl;
+				cin >> to_bet;
+				players.at(i).bet(to_bet);
 				break;
 			default:
 				cout << "ERROR: Invalid selection." << endl;
