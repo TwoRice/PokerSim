@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <iostream>
 #include "Menu.h"
 #include "Player.cpp"
@@ -6,6 +7,18 @@
 using namespace std;
 
 Menu::Menu(){
+=======
+class Menu {
+public:
+	Menu() {
+		display();
+	}
+
+private:
+	void display() {
+
+	}
+>>>>>>> 18715b53e4c47ca1121814eaf1aec58dc464cf01
 
 
 }
