@@ -59,7 +59,7 @@ void PokerSim::begin() {
 			case 'R':
 				cout << "Currently on table: " << current_table << endl;
 				cout << "Minimum to raise: " << min_raise << endl;
-				cout << "Available: " players.at(i).getChips() << endl;
+				cout << "Available: " << players.at(i).getChips() << endl;
 				int to_bet;
 				cout << "Enter amount to raise: " << endl;
 				cin >> to_bet;
@@ -77,7 +77,7 @@ void PokerSim::begin() {
 }
 
 PokerSim::PokerSim() {
-	this->current = 0;
+	this->current_table = 0;
 	setPlayers();
 	begin();
 }

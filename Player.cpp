@@ -36,7 +36,7 @@ int Player::getChips() {
 	return this->chips;
 }
 
-void Player::getCurrentBet() {
+int Player::getCurrentBet() {
 	return this->current_bet;
 }
 
@@ -48,7 +48,7 @@ void Player::setCurrentBet(int bet) {
 	this->current_bet = bet;
 }
 
-bool Player::fold() {
+void Player::fold() {
 	this->folded = true;
 }
 
