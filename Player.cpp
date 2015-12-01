@@ -26,7 +26,7 @@ string Player::getName() {
 	return this->name;
 }
 
-int Plyaer::getAmount() {
+int Player::getAmount() {
 	return this->chips;
 }
 

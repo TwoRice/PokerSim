@@ -5,7 +5,8 @@ public:
 
 private:
 
+	void game();
 	void display();
 	void read();
 
-}
+};

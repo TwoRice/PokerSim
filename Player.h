@@ -1,3 +1,5 @@
+using namespace std;
+
 class Player {
 private:
 	string name;
@@ -10,4 +12,4 @@ public:
 	string getName();
 	int getAmount();
 	void appendName(string end);
-}
+};

@@ -5,6 +5,14 @@
 
 using namespace std;
 
+void Menu::game(){
+
+	PokerSim game;
+
+	game.setPlayers();
+
+}
+
 void Menu::display(){
 
 	cout << "1. Start" << endl;
@@ -25,17 +33,16 @@ void Menu::read(){
 		switch(selection){
 
 			case 1:
+				game();
 				break;
 
 			case 2:
-			
 				cout << "Exiting Program" << endl;
 				break;
 
 			default:
-			
 				cout << "Invalid Selection" << endl;
-				breeak;		
+				break;		
 
 		}
 
@@ -43,9 +50,15 @@ void Menu::read(){
 
 }
 
-int main(){
+Menu::Menu(){
 
 	read();
+
+}
+
+int main(){
+
+	Menu m;
 	return 0;
 
 }
