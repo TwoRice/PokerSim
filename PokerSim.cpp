@@ -22,13 +22,42 @@ void PokerSim::setPlayers(){
 		cin >> name;
 		Player temp(name, chips);
 		players.push_back(temp);
-
 	}
 
 }
 
 void PokerSim::begin() {
+	for (int i = 0; i < players.size(); i++) {
+		string name = players.at(i).getName();
+		cout << name << ": Make selection.." << endl;
+		cout << "[C]heck" << endl;
+		cout << "[F]old" << endl;
+		cout << "[R]aise" << endl;
 
+		char selection;
+		cin >> selection;
+		switch(selection) {
+			case 'c':
+			case 'C':
+
+				break;
+			case 'f':
+			case 'F':
+
+				break;
+			case 'r':
+			case 'R':
+
+				break;
+			default:
+				cout << "ERROR: Invalid selection." << endl;
+				break;
+		}
+		// check - don't bet
+		// call - match bet
+		// fold - out
+		// raise - increase bet
+	}
 }
 
 PokerSim::PokerSim() {

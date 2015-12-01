@@ -1,8 +1,10 @@
 #include <vector>
 
-class PokerSim{
+class PokerSim {
 	private:
 		int pot;
+		int current_max;
+		
 		vector<Player> players;
 	public: 
 		PokerSim();
