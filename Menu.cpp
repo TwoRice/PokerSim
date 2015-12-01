@@ -8,8 +8,6 @@ void Menu::game(){
 
 	PokerSim game;
 
-	game.setPlayers();
-
 }
 
 void Menu::display(){
