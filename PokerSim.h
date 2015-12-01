@@ -1,4 +1,5 @@
 #include <vector>
+#include "Player.cpp"
 
 class PokerSim{
 

@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Menu.h"
-#include "Player.cpp"
 #include "PokerSim.cpp"
 
 using namespace std;
