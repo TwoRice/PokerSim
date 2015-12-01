@@ -1,15 +1,12 @@
-class Menu {
-public:
-	Menu() {
+#include <iostream>
+#include "Menu.h"
+#include "Player.cpp"
+#include "PokerSim.cpp"
 
-	}
+using namespace std;
 
-private:
-	void display() {
-		
-	}
+int main(){
 
-	void read() {
+	return 0;
 
-	}
 }
