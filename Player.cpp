@@ -4,11 +4,13 @@
 Player::Player(string name) {
 	this->name = name;
 	this->chips = 2000;
+	this->folded = false;
 }
 
 Player::Player(string name, int chips) {
 	this->name = name;
 	this->chips = chips;
+	this->folded = false;
 }
 
 // bets <amount> number of chips

@@ -4,6 +4,7 @@ class Player {
 private:
 	string name;
 	int chips;
+	bool folded;
 public:
 	Player(string name);
 	Player(string name, int chips);
