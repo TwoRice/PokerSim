@@ -61,39 +61,53 @@ void PokerSim::setPlayers(){
 }
 
 void PokerSim::begin() {
+	// for each player in vector <players>
 	for (int i = 0; i < players.size(); i++) {
 
-		int min_raise = current_table - players.at(i).getCurrentBet();
+		// calculate the minimum amount the player needs to raise
+		int min_raise = current_table - players.at(i).getCurrentBet();		
 		int available = players.at(i).getChips();
 
+		// if the player doesn't have enough to raise
 		if(min_raise > available) {
+			// display error message
 			cout << "ERROR: " << players.at(i).getName() << " doesn't have enough chips to continue; Folding.." << endl;
+			// fold the player
 			players.at(i).fold();
 		}
+		// if the player is folded
 		if(players.at(i).isFolded()) {
+			// skip to next iteration
 			continue;
 		}
 
-		cout << players.at(i).getName() << ": Make selection.." << endl;
+		// prompt for selection
+		cout << "["players.at(i).getName() << "] Make selection.." << endl;
 		cout << "[C]heck" << endl;
 		cout << "[F]old" << endl;
 		cout << "[R]aise" << endl;
 
+		// get selection
 		char selection;
 		cin >> selection;
 		switch(selection) {
+			// check
 			case 'c':
 			case 'C':
 				break;
+			// fold
 			case 'f':
 			case 'F':
 				players.at(i).fold();
 				break;
+			// raise
 			case 'r':
 			case 'R':
+				// display the highest amount a player has put in (the amount that needs to be raised to)
 				cout << "Currently on table: " << current_table << endl;
 				cout << "Minimum to raise: " << min_raise << endl;
 				cout << "Available: " << players.at(i).getChips() << endl;
+				// get amount to bet & bet
 				int to_bet;
 				cout << "Enter amount to raise: " << endl;
 				cin >> to_bet;
