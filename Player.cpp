@@ -51,6 +51,10 @@ void Player::setCurrentBet(int bet) {
 	this->current_bet = bet;
 }
 
+void Player::unfold(){
+	this->folded = false;
+}
+
 void Player::fold() {
 	this->folded = true;
 }

@@ -11,8 +11,8 @@ class PokerSim {
 		PokerSim();
 		bool isInPlayers(string name);
 		void setPlayers();
+		void unFoldPlayers();
 		void displayInfo(int i);
-		int countPlayersGame();
 		int countPlayersHand();
 		bool checkCall(int i);
 		void raise(int i);

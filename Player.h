@@ -21,5 +21,6 @@ public:
 	void setCurrentBet(int bet);
 	void appendName(string end);
 
+	void unfold();
 	void fold();
 };

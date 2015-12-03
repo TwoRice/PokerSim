@@ -62,6 +62,16 @@ void PokerSim::setPlayers(){
 
 }
 
+void PokerSim::unFoldPlayers(){
+
+	for(int i = 0; i < players.size(); i++){
+
+		players.at(i).unfold();
+
+	}
+
+}
+
 void PokerSim::displayInfo(int i){
 
 		cout << endl;
@@ -76,20 +86,6 @@ void PokerSim::displayInfo(int i){
 		highest_bet == 0 ? cout << "[C]heck" << endl : cout << "[C]all" << endl;
 		cout << "[F]old" << endl;
 		cout << "[R]aise" << endl;
-
-}
-
-int PokerSim::countPlayersGame(){
-
-	int count = 0;
-
-	for(int i = 0; i < players.size(); i++){
-
-		if(players.at(i).getChips() > 0){count++;}
-
-	}
-
-	return count;
 
 }
 
@@ -276,6 +272,8 @@ void PokerSim::out(){
 
 void PokerSim::hand(){
 
+	unFoldPlayers();
+
 	cout << "PRE-FLOP" << endl;
 	resetBets();
 	betting();
@@ -307,11 +305,18 @@ void PokerSim::game(){
 	this->highest_bet = 0;
 	this->pot = 0;
 	setPlayers();
-	while(countPlayersGame() > 1){
+	while(players.size() > 1){
 
 		hand();
 
 	}
+
+	cout << endl;
+	cout << "Game Over!" << endl;
+	cout << players.at(0).getName() << " wins the game!" << endl;
+	cout << endl;
+
+
 
 }
 
