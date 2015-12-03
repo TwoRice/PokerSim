@@ -25,8 +25,7 @@ void Menu::read(){
 
 		display();
 		cout << "Enter Selection : " << endl;
-		cin >> selection;
-
+		selection = Genio::readInt();
 		switch(selection){
 
 			case 1:

@@ -5,12 +5,14 @@ Player::Player(string name) {
 	this->name = name;
 	this->chips = 2000;
 	this->folded = false;
+	this->current_bet = 0;
 }
 
 Player::Player(string name, int chips) {
 	this->name = name;
 	this->chips = chips;
 	this->folded = false;
+	this->current_bet = 0;
 }
 
 // bets <amount> number of chips
@@ -21,6 +23,7 @@ bool Player::bet(int amount) {
 		return false;
 	} 
 	this->chips-=amount;
+	this->current_bet += amount;
 	return true;
 }
 

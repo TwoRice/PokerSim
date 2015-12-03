@@ -11,7 +11,7 @@ int Genio::readInt(){
 
 	while (true){
 
-		getline(cin, input);
+		getline(cin >> ws, input);
 
 		stringstream stream(input);
 		if (stream >> myInt){
@@ -31,7 +31,7 @@ float Genio::readFloat(){
 
 	while (true){
 
-		getline(cin, input);
+		getline(cin >> ws, input);
 
 		stringstream stream(input);
 		if (stream >> myFloat){
@@ -51,7 +51,7 @@ double Genio::readDouble(){
 
 	while (true){
 
-		getline(cin, input);
+		getline(cin >> ws, input);
 
 		stringstream stream(input);
 		if (stream >> myDouble){

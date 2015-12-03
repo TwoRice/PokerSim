@@ -4,11 +4,18 @@
 class PokerSim {
 	private:
 		int pot;
-		int current_table;
+		int highest_bet;
 
 		vector<Player> players;
 	public: 
 		PokerSim();
 		void setPlayers();
-		void begin();
+		void displayInfo(int i);
+		int countPlayersGame();
+		int countPlayersHand();
+		bool checkCall(int i);
+		void raise(int i);
+		void hand();
+		void round();
+		void game();
 };
