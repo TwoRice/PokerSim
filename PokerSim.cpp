@@ -5,6 +5,18 @@
 
 using namespace std;
 
+bool PokerSim::isInPlayers(string name){
+	
+	for (int i = 0; i < players.size(); i++)
+		{
+			if(name == players.at(i)){
+				return true;
+			}
+		}
+
+	return false;
+}
+
 void PokerSim::setPlayers(){
 
 	int chips;
@@ -215,6 +227,18 @@ void PokerSim::hand() {
 		}
 	}
 	exitLoop: ;
+}
+
+void PokerSim::winner(){
+
+	string winner;
+	
+	do{
+	cout << "Who won the round: " << endl;
+	getline(cin, winner);
+	}
+	while(!isInPlayers(winner));	
+	
 }
 
 void PokerSim::round(){
