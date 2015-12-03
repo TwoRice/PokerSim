@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "PokerSim.h"
 #include "Genio.cpp"
 
@@ -9,7 +10,7 @@ bool PokerSim::isInPlayers(string name){
 	
 	for (int i = 0; i < players.size(); i++)
 		{
-			if(name == players.at(i)){
+			if(name == players.at(i).getName()){
 				return true;
 			}
 		}
@@ -52,20 +53,8 @@ void PokerSim::setPlayers(){
 			cout << "Enter Player " << i+1 << "'s Name: " << endl;
 			getline(cin, name);
 			name = Genio::strToLower(name);
-			for(int j = 0; j < i; j++){
 
-				if(players.at(j).getName() == name){
-
-					cout << "Duplicate name" << endl;
-					validName = false;
-					break;
-
-				}
-
-			}
-
-
-		}while(validName == false);
+		}while(isInPlayers(name));
 		Player temp(name, chips);
 		players.push_back(temp);
 	}
@@ -179,7 +168,7 @@ void PokerSim::raise(int i){
 
 }
 
-void PokerSim::hand() {
+void PokerSim::betting() {
 	
 	bool allCalled = false;
 	int i = -1;
@@ -190,7 +179,9 @@ void PokerSim::hand() {
 		
 		i = (i+1) % players.size();
 		int available = players.at(i).getChips();
-		backAround++;
+		if(backAround < 3){
+			backAround++;
+		}
 
 		// if the player is folded
 		if(players.at(i).isFolded()) {
@@ -212,7 +203,11 @@ void PokerSim::hand() {
 			case 'f':
 			case 'F':
 				players.at(i).fold();
-				if(countPlayersHand() == 1){goto exitLoop;}
+				if(countPlayersHand() == 1){
+					
+					goto exitLoop;
+
+				}
 				break;
 			// raise
 			case 'r':
@@ -234,30 +229,75 @@ void PokerSim::winner(){
 	string winner;
 	
 	do{
-	cout << "Who won the round: " << endl;
-	getline(cin, winner);
+		cout << "Who won the round: " << endl;
+		getline(cin >> ws, winner);
+		winner = Genio::strToLower(winner);
 	}
-	while(!isInPlayers(winner));	
+	while(!isInPlayers(winner));
+
+	for(int i = 0; i < players.size(); i++){
+
+		if(players.at(i).getName() == winner){
+
+			players.at(i).win(pot);
+			pot = 0;
+			break;
+
+		}
+
+	}
 	
 }
 
-void PokerSim::round(){
+void PokerSim::resetBets(){
+
+	highest_bet = 0;
+	for(int i = 0; i < players.size(); i++){
+
+		players.at(i).setCurrentBet(0);
+
+	}
+
+}
+
+void PokerSim::out(){
+
+	for(int i = 0; i < players.size(); i++){
+
+		if(players.at(i).getChips() == 0){
+
+			players.erase(players.begin()+i);
+
+		}
+
+	}	
+
+}
+
+void PokerSim::hand(){
 
 	cout << "PRE-FLOP" << endl;
-	hand();
+	resetBets();
+	betting();
 	cout << endl;
 
 	cout << "FLOP" << endl;
-	hand();
+	resetBets();
+	betting();
 	cout << endl;
 
 	cout << "TURN" << endl;
-	hand();
+	resetBets();
+	betting();
 	cout << endl;
 
 	cout << "RIVER" << endl;
-	hand();
+	resetBets();
+	betting();
 	cout << endl;
+
+	winner();
+	out();
 
 
 }
@@ -269,7 +309,7 @@ void PokerSim::game(){
 	setPlayers();
 	while(countPlayersGame() > 1){
 
-		round();
+		hand();
 
 	}
 
