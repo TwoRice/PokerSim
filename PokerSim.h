@@ -9,6 +9,7 @@ class PokerSim {
 		vector<Player> players;
 	public: 
 		PokerSim();
+		bool isInPlayers(string name):
 		void setPlayers();
 		void displayInfo(int i);
 		int countPlayersGame();
@@ -16,6 +17,7 @@ class PokerSim {
 		bool checkCall(int i);
 		void raise(int i);
 		void hand();
+		void winner();
 		void round();
 		void game();
 };
