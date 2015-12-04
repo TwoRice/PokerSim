@@ -1,9 +1,19 @@
+/**
+* Author - Rory Magowan
+* Version 1.0 23rd November 2015
+*
+*/
 #include <iostream>
 #include <sstream>
 #include "Genio.h"
 
 using namespace std;
 
+/**
+*Method which validates if what is entered by the user is an integer
+*
+*return : myInt - integer value entered by the user
+*/
 int Genio::readInt(){
 
 	string input;
@@ -24,6 +34,11 @@ int Genio::readInt(){
 
 }
 
+/**
+*Method which validates if what is entered by the user is a float
+*
+*return : myFloat - float value entered by the user
+*/
 float Genio::readFloat(){
 
 	string input;
@@ -44,6 +59,11 @@ float Genio::readFloat(){
 
 }
 
+/**
+*Method which validates if what is entered by the user is an integer
+*
+*return : myDouble - Double value entered by the user
+*/
 double Genio::readDouble(){
 
 	string input;

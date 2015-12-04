@@ -1,3 +1,10 @@
+/**
+* Class which simulates the betting flow of poker using a vector of players and methods for
+* betting, calling, raising ,folding etc.
+*
+* Author - Rory Magowan, James Neil, Daniel Brereton, Daniel Kinnaird, Shaun Falconer
+* Version 1.0 3rd December 2015
+*/
 #include <vector>
 #include "Player.cpp"
 

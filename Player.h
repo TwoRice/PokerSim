@@ -1,3 +1,9 @@
+/**
+* Class which holds the data and methods for a single player in the game
+*
+* Author - Rory Magowan, James Neil, Daniel Brereton, Daniel Kinnaird, Shaun Falconer
+* Version 1.0 3rd December 2015
+*/
 using namespace std;
 
 class Player {
@@ -5,6 +11,7 @@ private:
 	string name;
 	int chips;
 	int current_bet;
+	//Variable which holds whether of not the player has folded the hand
 	bool folded;
 public:
 	Player(string name);
@@ -19,8 +26,6 @@ public:
 	bool isFolded();
 
 	void setCurrentBet(int bet);
-	void appendName(string end);
 
-	void unfold();
-	void fold();
+	void setFold(bool folded);
 };
